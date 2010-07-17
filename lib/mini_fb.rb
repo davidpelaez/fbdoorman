@@ -23,8 +23,8 @@ module MiniFB
     FB_URL = "http://api.facebook.com/restserver.php"
     FB_API_VERSION = "1.0"
     #Define here the values for your application
-    FB_URL = "http://api.facebook.com/restserver.php"
-    FB_API_VERSION = "1.0"
+    #FB_URL = "http://api.facebook.com/restserver.php"
+    #FB_API_VERSION = "1.0"
 
     @@logging = false
 

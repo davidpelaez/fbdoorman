@@ -47,7 +47,6 @@ Make sure the development database exists and run the generator.
 
 This:
 
-* Generates the facebook.yml to config your app inside /config
 * inserts Clearance::User into your User model
 * inserts Clearance::Authentication into your ApplicationController
 * inserts Clearance::Routes.draw(map) into your config.routes.rb
@@ -55,7 +54,7 @@ This:
 * prints further instructions
 
 
-Create your aplication in Facebook and set-up the information in config/facebook.yml
+Create your aplication in Facebook and set-up the information in config/facebook.yml (You'll have to create that file)
 
 Usage
 -----

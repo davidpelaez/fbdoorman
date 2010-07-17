@@ -47,7 +47,6 @@ Gem::Specification.new do |s|
      "generators/minifbclearance/templates/migrations/create_users.rb",
      "generators/minifbclearance/templates/migrations/update_users.rb",
      "generators/minifbclearance/templates/user.rb",
-     "lib/clearance.rb",
      "lib/clearance/authentication.rb",
      "lib/clearance/configuration.rb",
      "lib/clearance/extensions/errors.rb",
@@ -56,6 +55,7 @@ Gem::Specification.new do |s|
      "lib/clearance/user.rb",
      "lib/facebook_helpers.rb",
      "lib/mini_fb.rb",
+     "lib/minifbclearance.rb",
      "rails/init.rb"
   ]
   s.homepage = %q{http://github.com/davidpelaez/minifb-clearance}

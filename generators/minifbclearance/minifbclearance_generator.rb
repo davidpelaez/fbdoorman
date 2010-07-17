@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + "/lib/insert_commands.rb")
 require File.expand_path(File.dirname(__FILE__) + "/lib/rake_commands.rb")
 
-class MiniFBClearanceGenerator < Rails::Generator::Base
+class MinifbclearanceGenerator < Rails::Generator::Base
 
   def manifest
     record do |m|
@@ -19,13 +19,6 @@ class MiniFBClearanceGenerator < Rails::Generator::Base
         m.file "user.rb", user_model
       end
       
-      #Create configuration file
-      facebook_yml = "config/facebook.yml"
-      if !File.exists?(facebook_yml)
-        m.directory "config"
-        m.file "facebook.yml", facebook_yml
-      end
-
       m.insert_into "config/routes.rb",
                     "Clearance::Routes.draw(map)"
 
