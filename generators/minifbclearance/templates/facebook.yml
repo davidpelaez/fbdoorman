@@ -1,0 +1,7 @@
+:app_id: 
+:secret: 
+:api_key: 
+:callback_url: http://localhost:3000/fbconnect/
+:after_login_path:
+:after_register_path:
+:base_url: http://localhost:3000

@@ -1,16 +1,11 @@
 # encoding: utf-8
 require 'rake'
-generators = %w(clearance clearance_views)
+generators = %w(minifbclearance)
 
 namespace :generator do
-  desc "Run the clearance generator"
-  task :clearance do
-    system "cd test/rails_root && ./script/generate clearance -f && rake db:migrate db:test:prepare"
-  end
-
-  desc "Run the clearance views generator"
-  task :clearance_views do
-    system "cd test/rails_root && ./script/generate clearance_views -f"
+  desc "Run the minifbclearance generator"
+  task :minifbclearance do
+    system "cd test/rails_root && ./script/generate minifbclearance -f && rake db:migrate db:test:prepare"
   end
 end
 
