@@ -33,9 +33,14 @@ def facebook_js
   render :partial => "facebook/fbjs"
 end
 
-
+#only shows the login button if there's no logged in user
 def facebook_login
-  return "<fb:login-button></fb:login-button>"
+  debugger
+  if parse_fb_cookie.nil? then
+    return "<fb:login-button></fb:login-button>"
+  else
+    return ""
+  end
 end
 
 #TBD: Save the url in the DB. 50x50 px
