@@ -14,6 +14,7 @@ end
 #Si da false entonces el usuario se le deniega el acceso
 def authenticated_fbu?
   @fbcookie = parse_fb_cookie
+  if @fbcookie.nil? then return false end
   begin
     @uid = MiniFB.rest(@fbcookie["access_token"], "users.getLoggedInUser", {})
     if @uid.to_hash["response"] == current_user.fbid then return true else return false end 
@@ -40,10 +41,4 @@ end
 #TBD: Save the url in the DB. 50x50 px
 def facebook_pic_url
   return "http://graph.facebook.com/#{current_user.fbid}/picture?type=square"
-end
-
-#To simplify the name is saved in the email field since it's not escrypted for registered username, 
-# that way no additional column is added for name.
-def facebook_name
-  return current_user.name
 end

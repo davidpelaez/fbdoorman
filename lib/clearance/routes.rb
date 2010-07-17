@@ -46,7 +46,7 @@ module Clearance
       map.facebook  'facebook',
           :controller => 'clearance/facebook',
           :action     => 'index'
-      map.facebookclosed  'facebookclosed',
+      map.fbclosed  'fbclosed',
           :controller => 'clearance/facebook',
           :action     => 'closed'          
     end

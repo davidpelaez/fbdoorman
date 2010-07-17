@@ -18,8 +18,8 @@ FB_SECRET = FB[:secret]
 #This routed will be name with clearance routes as /facebook
 FB_CALLBACK_URL = "#{FB[:base_url]}/facebook"
 #This routed will be name with clearance routes as /facebookclosed
-FB_CLOSED_URL = "#{FB[:base_url]}/facebookclosed"
+FB_CLOSED_URL = "#{FB[:base_url]}/fbclosed"
 
-LOGGED_PATH = FB['after_login_path']
-REGISTERED_PATH = FB['after_register_path']
+FB_LOGGED_PATH = FB[:after_login_path]
+FB_REGISTERED_PATH = FB[:after_register_path]
 

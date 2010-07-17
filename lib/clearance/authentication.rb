@@ -52,7 +52,7 @@ module Clearance
       #   before_filter :authenticate
       def authenticate
         if user_from_fb? then #Manage different authentication if its a FB user
-          deny_access unless authenticated_fbu?
+          fb_deny_access unless authenticated_fbu? #Created a special deny access when a FB user loggout
         else
           deny_access unless signed_in?
         end
@@ -94,6 +94,12 @@ module Clearance
         store_location
         flash[:failure] = flash_message if flash_message
         redirect_to(sign_in_url)
+      end
+      
+      def fb_deny_access(flash_message = nil)
+        store_location
+        flash[:failure] = flash_message if flash_message
+        redirect_to FB_CLOSED_URL
       end
 
       protected
