@@ -20,7 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.email       = "pelaez89{at}gmail.com"
   gem.version     = "0.1"
   gem.homepage    = "http://github.com/davidpelaez/minifb-clearance"
-  gem.authors     = ["MiniFB:Appoxy","Dan Croak", "Mike Burns", "Jason Morrison",
+  gem.authors     = ["This gem: David Pelaez","MiniFB:Appoxy","Dan Croak", "Mike Burns", "Jason Morrison",
                      "Joe Ferris", "Eugene Bolshakov", "Nick Quaranto",
                      "Josh Nichols", "Mike Breen", "Marcel Görner",
                      "Bence Nagy", "Ben Mabey", "Eloy Duran",
