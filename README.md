@@ -41,10 +41,9 @@ Same as clearance 0.8.8 this works with versions of Rails greater than 2.3.
 
     gem "minifbclearance"
 
-Make sure the development database exists and run the generator. I didn't know howto and thus i didnt change the name of the
-generator. Sorry!
+Make sure the development database exists and run the generator. 
 
-    script/generate clearance
+    script/generate minifbclearance
 
 This:
 
