@@ -1,28 +1,29 @@
-MiniFb-Clearance
+Minifbclearance
 =========
 
 Rails authentication with facebook single sign-on OR email & password. 
-Based on Clearance by Thoughtbot and Appoxy's MiniFB
+Based on the gems Clearance by Thoughtbot and MiniFB by Appoxy
 
 Help Request
 ----
 
 I'm very new to rails, made the best I could! However, I'm sure it can be done better and cleaner, since I edited the clearance
-gem manually to create this.  
-So if you can help I'm sure this gem can be very useful and I'm just trying to contribute something to OpenSource! 
-Drop me a line if you can help: pelaez89 {at} gmail {.} com
+gem manually to create this.  I'm sure this gem can be very useful and I'm just trying to contribute something to OpenSource! 
+
+If you can Help drop me a line if you can help: pelaez89 {at} gmail {.} com
 
 About
 ----
 This gem has been created using Clearance and MiniFB gems, for more information referr to their source code, here:
-http://github.com/appoxy/mini_fb
-http://github.com/thoughtbot/clearance
+* http://github.com/appoxy/mini_fb
+* http://github.com/thoughtbot/clearance
 
-I'm a Colombian design Student and pretty much a newbie in rails, this code works and I'm using it in a soon to launch project.
-I was concerned about security issues using only facebook JS single sign-on and wanted to simplify MiniFB(even more, thanks guys
+I'm a Colombian design Student and pretty much a newbie in rails, this code works great and I'm using it in a soon to launch project.
+
+I was concerned about security issues using only facebook JS single sign-on and wanted to use MiniFB (thanks guys
 for such a great job) so that it could be use easily to authenticate users using their FB account, reducin sign-on/in times.
 
-However regular email & password still works fine, so the clearance url's sign-[*] still work for those users not using FB.
+However regular email & password still works fine, so the clearance url's sign-on/in still work for those users not using FB.
 
 Managing Login and Authentication
 ----
@@ -39,7 +40,7 @@ Installation
 ------------
 Same as clearance 0.8.8 this works with versions of Rails greater than 2.3.
 
-    gem "minifbclearance"
+    gem install minifbclearance
 
 Make sure the development database exists and run the generator. 
 
@@ -59,7 +60,7 @@ Create your aplication in Facebook and set-up the information in config/facebook
 Facebook.yml
 -----
 
-You should create de Facebook.yml inside config folder, this is what it should look like.
+You should create facebook.yml inside config folder, this is what it should look like.
 
 :app_id: #Get this from http://www.facebook.com/developers/createapp.php
 :secret: #from FB
@@ -76,32 +77,46 @@ method in a before_filter.
 
       before_filter :authenticate
 
+Known-issue with "Missing host to link to"
+---------
+
+Since Clearance tries to send confirmation mails and maybe Mailer settings are not defined in your app, you might run with and error. I'm not really sure why it happens but there's a solution if you just want to try clearance without the email confirmation.
+
+Check this link for how I solved it. If this is some mistake of mine please tell me how to solve it and I'll just edit de code right away!
+
+http://www.cherpec.com/2009/06/missing-host-to-link-to-please-provide-host-parameter-or-set-default_url_optionshost/
+
 Other helpers
 -----------
 Note: I didn't have that much time to create some fancy and useful helper's, hopefully in a next version! 
 
 The user Facebook pic url in square format is returned by the helper facebook_pic_url
 
-Alo the user name is added in a column inside user, so you can get that anytime
+Also the user name is added in a column inside user, so you can get that anytime with current_user.name
 
 Using MiniFB
 -----------
 You might be interested in using Facebook API with your user, you can do that using MiniFB.
-Facebook will create a cookie with the required information using this form fb_#{FB_APP_ID}_
-you can retrieve that cookie and it's values a a Hasg using this helper 
+Facebook will create a cookie with the required information naming it fb_#{FB_APP_ID}_
+you can retrieve that cookie and it's values a Hash using this helper 
 
 parse_fb_cookie 
-
-That helper's defined when the gem loads
 
 Customizing
 -----------
 
-I strongly suggest copying the view inside the gem to your views to customize them. 
+I strongly suggest copying the views inside the gem to your views to customize them. 
 Just copy the folder inside views, paste them in your app/views and customize it, 
 Rails will load those views first before those specifies by the gem.
 
 To change any of provided actions, subclass a Clearance controller. (See clearance doc for more details)
+
+Thanks to
+-------
+
+* The Clearance team, seeeing the source code you have created I truly realize how professionally done and reliable this gem is. I'm sorry I had to cut some of your code but my knowledge until now in rails was not enough to keep it all, it just was over my current skills. It would be great if you take this into your code and begin to promote single-on cause that reduced a lot of friction to create conversions to a given web service and clearance is probably the most simple and complete authentication gem out there.
+* Appoxy and all the MiniFB team, you really made a very simple solution to use Facebook, there's not so much documentation right now but the google group proves that there's a supporting community behind no matter the size. I'm working on some documentation and examples for not so experienced users to use MiniFB, I'll send them soon, maybe you could publish this somewhere to promote the gem plus the graph support is damn simple and clean!
+* Ryan Bates from Railcasts, his tutorials have helped me a lot through my rails learning and he's banner "Give back to open source" is one of my biggest motivations to work in this project.
 
 
 MiniFb Authors
