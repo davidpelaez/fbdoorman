@@ -32,6 +32,11 @@ Next:
 	:after_login_path: /welcome/logged #Where to take your users when they login with FB    
 	:after_register_path: /welcome/new #Where to go when a new user registers
 
+7. Insert the JS for the login button and FB single sign-on redirection to work in your layouts.
+
+	(...your layout code...)
+	<%= facebook_js  %>
+	</body> (....) 
 
 
 *******************************************************************************
