@@ -51,7 +51,7 @@ module Clearance
         model.class_eval do
           validates_presence_of     :email, :unless => Proc.new { |user| !user.fbid.blank? }
           validates_uniqueness_of   :email, :case_sensitive => false, :allow_blank => true
-          validates_uniqueness_of   :fbid
+          validates_uniqueness_of   :fbid, :unless => Proc.new { |user| user.fbid.blank? } 
           validates_format_of       :email, :with => %r{.+@.+\..+}, :allow_blank => true
 
           validates_presence_of     :password, :unless => Proc.new { |user| !user.fbid.blank? } #:unless => :password_optional?
