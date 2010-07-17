@@ -63,12 +63,12 @@ Facebook.yml
 
 You should create facebook.yml inside config folder, this is what it should look like.
 
-:app_id: #Get this from http://www.facebook.com/developers/createapp.php
-:secret: #from FB
-:api_key: #from FB
-:base_url: http://localhost:3000 #This is the url where you app's in, this is used to define where Fb should go after login
-:after_login_path: /welcome/logged #Where to take your users when they login with FB
-:after_register_path: /welcome/new #Where to go when a new user registers, use this to ask with a form for info specific to your app
+:app_id: #Get this from http://www.facebook.com/developers/createapp.php    
+:secret: #from FB    
+:api_key: #from FB    
+:base_url: http://localhost:3000 #This is the url where you app's in, this is used to define where Fb should go after login    
+:after_login_path: /welcome/logged #Where to take your users when they login with FB    
+:after_register_path: /welcome/new #Where to go when a new user registers, use this to ask with a form for info specific to your app    
 
 Usage
 -----
