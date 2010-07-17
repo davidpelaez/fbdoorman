@@ -31,7 +31,8 @@ Next:
 	:base_url: http://localhost:3000 #This is the url where you app's in, this is where Fb should go after login    
 	:after_login_path: /welcome/logged #Where to take your users when they login with FB    
 	:after_register_path: /welcome/new #Where to go when a new user registers
-
+	:url_after_create: /welcome/logged #Where to go when a session is created
+	
 7. Insert the JS for the login button and FB single sign-on redirection to work in your layouts.
 
 	(...your layout code...)

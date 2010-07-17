@@ -6,7 +6,8 @@ class Clearance::SessionsController < ApplicationController
   filter_parameter_logging :password
 
   def new
-    render :template => 'sessions/new'
+    if !signed_in? then render :template => 'sessions/new'
+    else redirect_back_or(url_after_create) end
   end
 
   def create
@@ -53,7 +54,7 @@ class Clearance::SessionsController < ApplicationController
   end
 
   def url_after_create
-    '/'
+    URL_AFTER_CREATE
   end
 
   def flash_success_after_destroy

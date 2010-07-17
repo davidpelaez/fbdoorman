@@ -23,3 +23,5 @@ FB_CLOSED_URL = "#{FB[:base_url]}/fbclosed"
 FB_LOGGED_PATH = FB[:after_login_path]
 FB_REGISTERED_PATH = FB[:after_register_path]
 
+URL_AFTER_CREATE = FB[:url_after_create]
+
