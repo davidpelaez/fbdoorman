@@ -1,3 +1,3 @@
-0.1 (07/16/2010)
+0.2 (07/17/2010)
 ------------------
-* Created
+* Updated some minor details in the Rakefile
