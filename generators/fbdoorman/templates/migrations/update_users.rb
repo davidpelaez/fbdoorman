@@ -9,7 +9,7 @@ class ClearanceUpdateUsers<%= schema_version_constant %> < ActiveRecord::Migrati
         [:confirmation_token, 't.string :confirmation_token, :limit => 128'],
         [:remember_token,     't.string :remember_token, :limit => 128'],
         [:name,     't.string :name, :limit => 128'],
-        [:fbid,     't.integer :fbid],
+        [:fbid,     't.integer :fbid'],
         [:email_confirmed,    't.boolean :email_confirmed, :default => false, :null => false']
       ].delete_if {|c| existing_columns.include?(c.first.to_s)}
 -%>
