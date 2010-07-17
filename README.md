@@ -56,6 +56,18 @@ This:
 
 Create your aplication in Facebook and set-up the information in config/facebook.yml (You'll have to create that file)
 
+Facebook.yml
+-----
+
+You should create de Facebook.yml inside config folder, this is what it should look like.
+
+:app_id: #Get this from http://www.facebook.com/developers/createapp.php
+:secret: #from FB
+:api_key: #from FB
+:base_url: http://localhost:3000 #This is the url where you app's in, this is used to define where Fb should go after login
+:after_login_path: /welcome/logged #Where to take your users when they login with FB
+:after_register_path: /welcome/new #Where to go when a new user registers, use this to ask with a form for info specific to your app
+
 Usage
 -----
 
@@ -87,7 +99,7 @@ Customizing
 
 I strongly suggest copying the view inside the gem to your views to customize them. 
 Just copy the folder inside views, paste them in your app/views and customize it, 
-Rails will load those views first.
+Rails will load those views first before those specifies by the gem.
 
 To change any of provided actions, subclass a Clearance controller. (See clearance doc for more details)
 
