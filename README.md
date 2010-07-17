@@ -35,7 +35,7 @@ The gem doesn't use MiniFB oauth_url to login, instead it provides two helpers, 
 print inside your layout and inside your views the Fb login button and the JS required to point the users to the
 Facebook controller inside the gem upon sign_in or session close. The facebook_js is required for the login button to work.
 
-Installation#CHEK THIS
+Installation
 ------------
 Same as clearance 0.8.8 this works with versions of Rails greater than 2.3.
 
@@ -53,6 +53,9 @@ This:
 * inserts Clearance::Routes.draw(map) into your config.routes.rb
 * created a migration that either creates a users table or adds only missing columns
 * prints further instructions
+
+
+Create your aplication in Facebook and set-up the information in config/facebook.yml
 
 Usage
 -----
