@@ -1,7 +1,7 @@
-Minifbclearance
+Fbdoorman
 =========
 
-Rails authentication with facebook single sign-on OR email & password. 
+Rails authentication with facebook single sign-on...or email & password. 
 Based on the gems Clearance by Thoughtbot and MiniFB by Appoxy
 
 Help Request
@@ -41,11 +41,11 @@ Installation
 ------------
 Same as clearance 0.8.8 this works with versions of Rails greater than 2.3.
 
-    gem install minifbclearance
+    gem install fbdoorman
 
 Make sure the development database exists and run the generator. 
 
-    script/generate minifbclearance
+    script/generate fbdoorman
 
 This:
 
