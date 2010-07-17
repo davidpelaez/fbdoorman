@@ -37,7 +37,7 @@ class Clearance::FacebookController < ApplicationController
   #Js is informing that the query as cleared
   def closed
     sign_out
-    redirect_to FB_CLOSED_PATH
+    redirect_to FB_CLOSED_URL
   end
   
   def sign_in_fbu(myuser)

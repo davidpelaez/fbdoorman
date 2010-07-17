@@ -6,7 +6,9 @@ def parse_fb_cookie
 end
 
 def user_from_fb?
+  if signed_in? then
   return !current_user.fbid.blank? #If that's not blank then its a FB user
+  else return false end
 end
 
 #Si da false entonces el usuario se le deniega el acceso
