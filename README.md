@@ -15,6 +15,7 @@ If you can Help drop me a line if you can help: pelaez89 {at} gmail {.} com
 About
 ----
 This gem has been created using Clearance and MiniFB gems, for more information referr to their source code, here:
+
 * http://github.com/appoxy/mini_fb
 * http://github.com/thoughtbot/clearance
 
