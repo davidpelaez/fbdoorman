@@ -1,11 +1,11 @@
 # encoding: utf-8
 require 'rake'
-generators = %w(minifbclearance)
+generators = %w(fbdoorman)
 
 namespace :generator do
-  desc "Run the minifbclearance generator"
+  desc "Run the fbdoorman generator"
   task :minifbclearance do
-    system "cd test/rails_root && ./script/generate minifbclearance -f && rake db:migrate db:test:prepare"
+    system "cd test/rails_root && ./script/generate fbdoorman -f && rake db:migrate db:test:prepare"
   end
 end
 
@@ -14,11 +14,11 @@ task :default => []
 require 'jeweler'
 
 Jeweler::Tasks.new do |gem|
-  gem.name        = "minifbclearance"
+  gem.name        = "fbdoorman"
   gem.summary     = "Rails authentication with facebook single sign-on OR email & password."
   gem.description = "Painless user registration and sign-in using Facebook single sign-on with JS. Typical email login still works too."
   gem.email       = "pelaez89{at}gmail.com"
-  gem.version     = "0.2"
+  gem.version     = "0.0.1"
   gem.homepage    = "http://github.com/davidpelaez/minifb-clearance"
   gem.authors     = ["This gem: David Pelaez","MiniFB:Appoxy","Dan Croak", "Mike Burns", "Jason Morrison",
                      "Joe Ferris", "Eugene Bolshakov", "Nick Quaranto",

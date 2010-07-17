@@ -1,0 +1,37 @@
+
+*******************************************************************************
+
+Next:
+
+1. Configure default url options for the mailer to generate URLs in emails.
+   In production.rb it must be the actual host your application is deployed to.
+   In config/environments/test.rb and config/environments/development.rb:
+
+     config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+2. Migrate:
+
+     rake db:migrate
+
+4. Make sure you're displaying flashes somewhere. For instance, in a layout:
+
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%=h value %></div>
+      <% end -%>
+    </div>
+
+5. If you haven't, create your app in http://www.facebook.com/developers/createapp.php  
+
+6. Create config/facebook.yml and put in there you app's information. It should look something like this:
+
+	:app_id: #Get this from http://www.facebook.com/developers/createapp.php    
+	:secret: #from FB    
+	:api_key: #from FB    
+	:base_url: http://localhost:3000 #This is the url where you app's in, this is where Fb should go after login    
+	:after_login_path: /welcome/logged #Where to take your users when they login with FB    
+	:after_register_path: /welcome/new #Where to go when a new user registers
+
+
+
+*******************************************************************************
