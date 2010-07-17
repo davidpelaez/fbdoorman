@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["MiniFB:Appoxy", "Dan Croak", "Mike Burns", "Jason Morrison", "Joe Ferris", "Eugene Bolshakov", "Nick Quaranto", "Josh Nichols", "Mike Breen", "Marcel G\303\266rner", "Bence Nagy", "Ben Mabey", "Eloy Duran", "Tim Pope", "Mihai Anca", "Mark Cornick", "Shay Arnett", "Jon Yurek", "Chad Pytel"]
-  s.date = %q{2010-07-16}
+  s.date = %q{2010-07-17}
   s.description = %q{Painless user registration and sign-in using Facebook single sign-on with JS. Typical email login still works too.}
   s.email = %q{pelaez89{at}gmail.com}
   s.extra_rdoc_files = [
@@ -31,6 +31,7 @@ Gem::Specification.new do |s|
      "app/views/clearance_mailer/change_password.html.erb",
      "app/views/clearance_mailer/confirmation.html.erb",
      "app/views/facebook/_fbjs.html.erb",
+     "app/views/facebook/closed.html.erb",
      "app/views/passwords/edit.html.erb",
      "app/views/passwords/new.html.erb",
      "app/views/sessions/new.html.erb",
