@@ -39,6 +39,13 @@ Facebook controller inside the gem upon sign_in or session close. The facebook_j
 
 Installation
 ------------
+
+Install the following gems required by minifb ([sudo] gem install [gemname])
+
+* hashie
+* rest-client
+* json
+
 Same as clearance 0.8.8 this works with versions of Rails greater than 2.3.
 
     gem install fbdoorman

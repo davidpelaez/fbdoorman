@@ -37,7 +37,7 @@ class Clearance::FacebookController < ApplicationController
   
   def sign_in_fbu(myuser)
       sign_in(myuser)
-      redirect_to FB_LOGGED_PATH
+      redirect_to FB_LOGGED_PATH and return
   end
   
   #Here I reply the create the new user, I changed te verifications so that fbid is unique and password is optional
@@ -45,9 +45,9 @@ class Clearance::FacebookController < ApplicationController
   def register_fbu(new_user)
     @user = ::User.new
     @user.fbid = new_user.id
-    @user.name = new_user.name #Save the name inside email since it's not used
+    @user.name = new_user.name 
     if @user.save
-      redirect_to FB_REGISTERED_PATH
+      sign_in_fbu(@user)
     else
       render :text => "No se pudo registrar su usuario de FB"
     end    
