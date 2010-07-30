@@ -54,6 +54,10 @@ Make sure the development database exists and run the generator.
 
     script/generate fbdoorman
 
+Add the gem dependency inside the config/environment.rb (Otherwise you'll get an error about Clearance constant not being initialized)
+
+gem.config "fbdoorman"
+
 This:
 
 * inserts Clearance::User into your User model
@@ -89,7 +93,7 @@ method in a before_filter.
 Known-issue with "Missing host to link to"
 ---------
 
-Since Clearance tries to send confirmation mails and maybe Mailer settings are not defined in your app, you might run with and error. I'm not really sure why it happens but there's a solution if you just want to try clearance without the email confirmation.
+Since Clearance tries to send confirmation mails and maybe Mailer settings are not defined in your app, you might run with an error. I'm not really sure why it happens but there's a solution if you just want to try clearance without the email confirmation.
 
 Check this link for how I solved it. If this is some mistake of mine please tell me how to solve it and I'll just edit de code right away!
 
