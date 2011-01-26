@@ -14,6 +14,7 @@ FB = YAML.load_file("#{RAILS_ROOT}/config/facebook.yml")
 FB_API_KEY = FB[:api_key]
 FB_APP_ID = FB[:app_id]
 FB_SECRET = FB[:secret]
+MAILER_SENDER = FB[:mailer_sender]
 
 #This routed will be name with clearance routes as /facebook
 FB_CALLBACK_URL = "#{FB[:base_url]}/facebook"

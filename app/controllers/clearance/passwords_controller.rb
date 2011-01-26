@@ -7,7 +7,11 @@ class Clearance::PasswordsController < ApplicationController
   filter_parameter_logging :password, :password_confirmation
 
   def new
-    render :template => 'passwords/new'
+    if user_from_fb? then
+      render :template => 'passwords/fbuser'
+    else
+      render :template => 'passwords/new'
+    end
   end
 
   def create

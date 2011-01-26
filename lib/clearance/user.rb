@@ -54,8 +54,8 @@ module Clearance
           validates_uniqueness_of   :fbid, :unless => Proc.new { |user| user.fbid.blank? } 
           validates_format_of       :email, :with => %r{.+@.+\..+}, :allow_blank => true
 
-          validates_presence_of     :password, :unless => Proc.new { |user| !user.fbid.blank? } #:unless => :password_optional?
-          validates_confirmation_of :password, :unless => Proc.new { |user| !user.fbid.blank? }#:unless => :password_optional?
+          validates_presence_of     :password, :unless => Proc.new { |user| !user.fbid.blank? or :password_optional? } 
+          validates_confirmation_of :password, :unless => Proc.new { |user| !user.fbid.blank? or :password_optional? }
         end
       end
     end
@@ -186,7 +186,7 @@ module Clearance
       end
 
       def send_confirmation_email
-        ClearanceMailer.deliver_confirmation self
+        ClearanceMailer.deliver_confirmation self 
       end
     end
 

@@ -3,7 +3,7 @@ module Clearance
     attr_accessor :mailer_sender
 
     def initialize
-      @mailer_sender = 'donotreply@example.com'
+      @mailer_sender = "hello@example.org"
     end
   end
 

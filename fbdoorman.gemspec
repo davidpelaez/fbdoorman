@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{fbdoorman}
-  s.version = "0.0.2"
+  s.version = "0.7.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Fbdoorman: David Pelaez", "MiniFB: Appoxy", "Clearance: Thoughtbot"]
-  s.date = %q{2010-07-28}
+  s.date = %q{2010-12-29}
   s.description = %q{Painless user registration and sign-in using Facebook single sign-on with JS. Typical email login still works too.}
   s.email = %q{pelaez89@gmail.com}
   s.extra_rdoc_files = [
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
      "app/views/facebook/_fbjs.html.erb",
      "app/views/facebook/closed.html.erb",
      "app/views/passwords/edit.html.erb",
+     "app/views/passwords/fbuser.html.erb",
      "app/views/passwords/new.html.erb",
      "app/views/sessions/new.html.erb",
      "app/views/users/_form.html.erb",

@@ -45,7 +45,8 @@ class Clearance::FacebookController < ApplicationController
   def register_fbu(new_user)
     @user = ::User.new
     @user.fbid = new_user.id
-    @user.name = new_user.name 
+    @user.name = new_user.name
+    @user.email2 = new_user.email 
     if @user.save
       sign_in_fbu(@user)
     else

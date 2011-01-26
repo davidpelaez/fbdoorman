@@ -82,6 +82,16 @@ You should create facebook.yml inside config folder, this is what it should look
 :after_register_path: /welcome/new #Where to go when a new user registers, use this to ask with a form for info specific to your app    
 :url_after_create: /welcome/logged  Where to go when a session is created 
 
+
+Configure MailSender
+---------
+
+Clearance requires you to set the sender of the confirmation emails. E.g:
+
+Clearance.configure do |config|
+     config.mailer_sender = 'No-reply <hello@something.com>'
+end
+
 Usage
 -----
 
@@ -103,7 +113,8 @@ Other helpers
 -----------
 Note: I didn't have that much time to create some fancy and useful helper's, hopefully in a next version! 
 
-The user Facebook pic url in square format is returned by the helper facebook_pic_url
+* The user Facebook pic url in square format is returned by the helper facebook_pic_url
+* The amount of likes for a given link is return by like_count(url) (NO error management for this yet)
 
 Also the user name is added in a column inside user, so you can get that anytime with current_user.name
 

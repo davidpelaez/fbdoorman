@@ -4,6 +4,7 @@ class ClearanceUpdateUsers<%= schema_version_constant %> < ActiveRecord::Migrati
       existing_columns = ActiveRecord::Base.connection.columns(:users).collect { |each| each.name }
       columns = [
         [:email,              't.string :email'],
+        [:email2,              't.string :email2'],
         [:encrypted_password, 't.string :encrypted_password, :limit => 128'],
         [:salt,               't.string :salt, :limit => 128'],
         [:confirmation_token, 't.string :confirmation_token, :limit => 128'],
