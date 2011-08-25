@@ -48,7 +48,24 @@ Install the following gems required by minifb ([sudo] gem install [gemname])
 
 Same as clearance 0.8.8 this works with versions of Rails greater than 2.3.
 
-    gem install fbdoorman
+    gem install fbdoorman 
+
+Create your aplication in Facebook and set-up the information in config/facebook.yml (You'll have to create that file)
+
+Facebook.yml
+-----
+
+You should create facebook.yml inside config folder, this is what it should look like.
+
+:app_id: #Get this from http://www.facebook.com/developers/createapp.php    
+:secret: #from FB    
+:api_key: #from FB    
+:base_url: http://localhost:3000 #This is the url where you app's in, this is used to define where Fb should go after login    
+:after_login_path: /welcome/logged #Where to take your users when they login with FB    
+:after_register_path: /welcome/new #Where to go when a new user registers, use this to ask with a form for info specific to your app    
+:url_after_create: /welcome/logged  Where to go when a session is created
+ 
+*It's a common mistake to ass a trailing sladge at the end of the base_url. Doing that will brake the facebook redirections since the root sladge will be added twice and breaking the url*
 
 Make sure the development database exists and run the generator. 
 
@@ -67,20 +84,7 @@ This:
 * prints further instructions
 
 
-Create your aplication in Facebook and set-up the information in config/facebook.yml (You'll have to create that file)
-
-Facebook.yml
------
-
-You should create facebook.yml inside config folder, this is what it should look like.
-
-:app_id: #Get this from http://www.facebook.com/developers/createapp.php    
-:secret: #from FB    
-:api_key: #from FB    
-:base_url: http://localhost:3000 #This is the url where you app's in, this is used to define where Fb should go after login    
-:after_login_path: /welcome/logged #Where to take your users when they login with FB    
-:after_register_path: /welcome/new #Where to go when a new user registers, use this to ask with a form for info specific to your app    
-:url_after_create: /welcome/logged  Where to go when a session is created 
+ 
 
 
 Configure MailSender

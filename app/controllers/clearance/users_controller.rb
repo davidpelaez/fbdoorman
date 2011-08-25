@@ -15,6 +15,7 @@ class Clearance::UsersController < ApplicationController
     @user = ::User.new params[:user]
     if @user.save
       flash_notice_after_create
+      sign_in(@user) #Login recently created user
       redirect_to(url_after_create)
     else
       render :template => 'users/new'
