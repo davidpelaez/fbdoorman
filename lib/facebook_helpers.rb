@@ -34,7 +34,7 @@ def facebook_js
 end
 
 def facebook_login
-    return "<fb:login-button perms='publish_stream,email'></fb:login-button>"
+    return "<fb:login-button scope='publish_stream,email'></fb:login-button>"
 end
 
 def fb_signed_in?
