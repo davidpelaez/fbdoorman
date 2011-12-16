@@ -18,7 +18,7 @@ Jeweler::Tasks.new do |gem|
   gem.summary     = "Rails authentication with facebook single sign-on OR email & password."
   gem.description = "Painless user registration and sign-in using Facebook single sign-on with JS. Typical email login still works too."
   gem.email       = "pelaez89@gmail.com"
-  gem.version     = "0.7.7"
+  gem.version     = "0.7.9"
   gem.homepage    = "http://github.com/davidpelaez/minifb-clearance"
   gem.authors     = ["Fbdoorman: David Pelaez","MiniFB: Appoxy","Clearance: Thoughtbot"]
   gem.files       = FileList["[A-Z]*", "{app,config,generators,lib,shoulda_macros,rails}/**/*"]
