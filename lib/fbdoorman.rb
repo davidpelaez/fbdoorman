@@ -1,5 +1,7 @@
 require 'mini_fb'
 require 'facebook_helpers'
+require 'request_parser'
+
 require 'clearance/extensions/errors'
 require 'clearance/extensions/rescue'
 require 'clearance/configuration'
@@ -21,8 +23,8 @@ FB_CALLBACK_URL = "#{FB[:base_url]}/facebook"
 #This routed will be name with clearance routes as /facebookclosed
 FB_CLOSED_URL = "#{FB[:base_url]}/fbclosed"
 
-FB_LOGGED_PATH = FB[:after_login_path]
-FB_REGISTERED_PATH = FB[:after_register_path]
+LOGGED_PATH = FB[:after_login_path]
+REGISTERED_PATH = FB[:after_register_path]
 
 URL_AFTER_CREATE = FB[:url_after_create]
 

@@ -1,31 +1,35 @@
 <div id="fb-root"></div>
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '<%=FB_APP_ID%>', // App ID
-      channelUrl : '<%= FB[:base_url].gsub("http:", '').gsub('https:','') %>/channel.html', // Channel File
-      status     : true, // check login status
-      cookie     : true, // enable cookies to allow the server to access the session
-      xfbml      : true  // parse XFBML
-    });
+window.fbAsyncInit = function() {
+  FB.init({ appId: '151745734845074', 
+	    status: true, 
+	    cookie: true,
+	    xfbml: true,
+	    oauth: true});
 
-    // Additional initialization code here
-	FB.Event.subscribe('auth.login', function(response) {
-			window.location="<%=FB_CALLBACK_URL%>";
-	  });
-	
-	FB.Event.subscribe('auth.logout', function(response) {
-	  // The user has logged out, and the cookie has been cleared
-		window.location="<%=FB_CLOSED_URL%>";
-	  });
 
+  function manageStatus(response) {
+		
+    if (response.authResponse) {
+		//The user is logged in
+		alert("YOU'r Inside");
+	}else{
+		//The user is either not logged in or hasn't authorized the app
+		alert("You'r session's no longer valid");
+	}
   };
 
-  // Load the SDK Asynchronously
-  (function(d){
-     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-     js = d.createElement('script'); js.id = id; js.async = true;
-     js.src = "//connect.facebook.net/en_US/all.js";
-     d.getElementsByTagName('head')[0].appendChild(js);
-   }(document));
+  // run once with current status and whenever the status changes
+  FB.getLoginStatus(updateButton);
+  FB.Event.subscribe('auth.statusChange', updateButton);	
+};
+
+//Load the FB JS SDK	
+(function() {
+  var e = document.createElement('script'); e.async = true;
+  e.src = document.location.protocol 
+    + '//connect.facebook.net/en_US/all.js';
+  document.getElementById('fb-root').appendChild(e);
+}());
+
 </script>

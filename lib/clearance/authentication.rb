@@ -64,12 +64,18 @@ module Clearance
       #
       # @example
       #   sign_in(@user)
-      def sign_in(user)
+      def sign_in(user, fb_token = nil, token_expiration = nil)
         if user
           cookies[:remember_token] = {
             :value   => user.remember_token,
             :expires => 1.year.from_now.utc
           }
+          if !user.fbid.blank?  then
+            cookies[:fb_token] = {
+              :value   => fb_token,
+              :expires => token_expiration.to_i.seconds.from_now.utc
+            } 
+          end
           self.current_user = user
         end
       end
@@ -81,8 +87,7 @@ module Clearance
       def sign_out
         current_user.reset_remember_token! if current_user
         cookies.delete(:remember_token)
-        #Remove FB cookie
-        delete_fb_cookie
+        cookies.delete(:fb_token)
         self.current_user = nil
       end
 
@@ -99,6 +104,7 @@ module Clearance
       def fb_deny_access(flash_message = nil)
         store_location
         flash[:failure] = flash_message if flash_message
+        
         redirect_to FB_CLOSED_URL
       end
 

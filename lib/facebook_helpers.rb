@@ -13,20 +13,22 @@ end
 
 #Si da false entonces el usuario se le deniega el acceso
 def authenticated_fbu?
-  @fbcookie = parse_fb_cookie
-  if @fbcookie.nil? then return false end
-  begin
-    @uid = MiniFB.rest(@fbcookie["access_token"], "users.getLoggedInUser", {})
-    if @uid.to_hash["response"] == current_user.fbid then return true else return false end 
-  rescue MiniFB::FaceBookError #Is this error happen the token expired
-    return false
-  end
+  token = cookies[:fb_token]
+  if token.nil? then return false end
+  if token_user(token) == current_user.fbid then return true else return false end 
   #The user is authenticated if the UID than own the token is the same as the one in current user
 end
 
-def delete_fb_cookie
-  cookies.delete("fbs_#{FB_APP_ID}".to_sym)
+def token_user(token)
+  begin
+    @uid = MiniFB.rest(token, "users.getLoggedInUser", {})
+    return @uid.to_hash["response"]
+  rescue MiniFB::FaceBookError #Is this error happen the token expired
+    return nil
+  end
 end
+
+
 
 
 def facebook_js
