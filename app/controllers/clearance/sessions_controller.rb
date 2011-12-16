@@ -33,6 +33,10 @@ class Clearance::SessionsController < ApplicationController
     flash_success_after_destroy
     redirect_to(url_after_destroy)
   end
+  
+  def channel
+    render :inline => '<script src="//connect.facebook.net/en_US/all.js"></script>'
+  end
 
   private
 

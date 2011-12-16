@@ -1,0 +1,14 @@
+<div id="fb-root"></div>
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+<script>
+  FB.init({appId: '<%=FB_APP_ID%>', status: true, cookie: true, xfbml: true, oauth: true});
+  FB.Event.subscribe('auth.sessionChange', function(response) {
+    if (response.session) {
+      // A user has logged in, and a new cookie has been saved
+		window.location="<%=FB_CALLBACK_URL%>";
+    } else {
+      // The user has logged out, and the cookie has been cleared
+		window.location="<%=FB_CLOSED_URL%>";
+    }
+  });
+</script>
