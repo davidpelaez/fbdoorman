@@ -24,7 +24,6 @@ FB_CALLBACK_URL = "#{FB[:base_url]}/facebook"
 FB_CLOSED_URL = "#{FB[:base_url]}/fbclosed"
 
 LOGGED_PATH = FB[:after_login_path]
-REGISTERED_PATH = FB[:after_register_path]
 
 URL_AFTER_CREATE = FB[:url_after_create]
 

@@ -8,11 +8,12 @@ class Clearance::FacebookController < ApplicationController
         #The code arrives here
         user_id = token_user(params[:token])
         if user_id != nil then
+          @user = nil
           @user = find_fbuser(user_id) #The one from the DB
           #If the user exists
-          if @user then
+          if !@user.nil? then
             sign_in(@user, params[:token], params[:expiration])
-            redirect_to LOGGED_PATH and return
+            redirect_to LOGGED_PATH
           else #If theres no user with that id
             #Register this user
             register_fbu(params[:token])
@@ -26,7 +27,8 @@ class Clearance::FacebookController < ApplicationController
   #Js is informing that the query as cleared
   def closed
     sign_out
-    render :template => "facebook/closed"
+    flash[:notice] = translate(:facebook_closed, :default =>  "Facebook session expired.")
+    redirect_to sign_in_path
   end
   
 

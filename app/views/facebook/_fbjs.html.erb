@@ -1,5 +1,37 @@
 <div id="fb-root"></div>
 <script>
+
+/*******Form for post ********
+*
+* Code by Rakesh Pai via http://stackoverflow.com/questions/133925/javascript-post-request-like-a-form-submit
+*/
+function post_to_url(path, params, method) {
+    method = method || "post"; // Set method to post by default, if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", key);
+        hiddenField.setAttribute("value", params[key]);
+
+        form.appendChild(hiddenField);
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+
+
+/******************
+* Facebook CODE
+******************/
+
 window.fbAsyncInit = function() {
   FB.init({ appId: '151745734845074', 
 	    status: true, 
@@ -9,19 +41,25 @@ window.fbAsyncInit = function() {
 
 
   function manageStatus(response) {
-		
-    if (response.authResponse) {
-		//The user is logged in
-		alert("YOU'r Inside");
-	}else{
-		//The user is either not logged in or hasn't authorized the app
-		alert("You'r session's no longer valid");
-	}
+	if (response.status === 'connected') {
+	    // the user is logged in and connected to your
+	    // app, and response.authResponse supplies
+	    // the user's ID, a valid access token, a signed
+	    // request, and the time the access token 
+	    // and signed request each expire
+		<%= if !signed_in? then
+	    "var accessToken = response.authResponse.accessToken;
+		var expiration = response.authResponse.expiresIn;
+		//window.location='/facebook' + '?token=' + accessToken + '&expiration=' + expiration;
+		post_to_url('/facebook', {'token':accessToken, 'expiration': expiration});"
+		end %>
+	  }
   };
 
   // run once with current status and whenever the status changes
-  FB.getLoginStatus(updateButton);
-  FB.Event.subscribe('auth.statusChange', updateButton);	
+  FB.getLoginStatus(manageStatus);
+  FB.Event.subscribe('auth.statusChange', manageStatus);	
+  FB.Event.subscribe('auth.logout', function(response){	window.location="<%=FB_CLOSED_URL%>"; });	
 };
 
 //Load the FB JS SDK	
