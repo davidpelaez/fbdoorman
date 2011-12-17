@@ -50,7 +50,6 @@ window.fbAsyncInit = function() {
 		<%= if !signed_in? then
 	    "var accessToken = response.authResponse.accessToken;
 		var expiration = response.authResponse.expiresIn;
-		//window.location='/facebook' + '?token=' + accessToken + '&expiration=' + expiration;
 		post_to_url('/facebook', {'token':accessToken, 'expiration': expiration});"
 		end %>
 	  }

@@ -39,9 +39,14 @@ def facebook_login
     return "<fb:login-button scope='publish_stream,email'></fb:login-button>"
 end
 
-def fb_signed_in?
-  if parse_fb_cookie.nil? then return false else return true end
+def sign_out_link(msg="Sign out")
+  if user_from_fb? then
+    return "<a href='#' onClick='javascript:FB.logout();'>#{msg}</a>"
+  else
+    return "<a href='/sign_out'>#{msg}</a>"  
+  end
 end
+
 
 #TBD: Save the url in the DB. 50x50 px
 def facebook_pic_url
