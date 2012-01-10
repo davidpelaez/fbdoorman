@@ -18,6 +18,7 @@ class Clearance::UsersController < ApplicationController
       sign_in(@user) #Login recently created user
       redirect_to(url_after_create)
     else
+      flash_failure_after_create
       render :template => 'users/new'
     end
   end
@@ -29,6 +30,12 @@ class Clearance::UsersController < ApplicationController
       :scope   => [:clearance, :controllers, :users],
       :default => "You will receive an email within the next few minutes. " <<
                   "It contains instructions for confirming your account.")
+  end
+  
+  def flash_failure_after_create
+    flash.now[:failure] = translate(:used_email_or_unmatching_passwords,
+      :scope   => [:clearance, :controllers, :users],
+      :default => "Email is already being used or the passwords didn't match.")
   end
 
   def url_after_create
